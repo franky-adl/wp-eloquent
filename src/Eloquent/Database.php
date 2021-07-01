@@ -67,13 +67,23 @@ class Database implements ConnectionInterface
     }
 
     /**
+     * Get the database name.
+     *
+     * @return string|null
+     */
+    public function getDatabaseName()
+    {
+        return $this->db->dbname;
+    }
+
+    /**
      * Begin a fluent query against a database table.
      *
      * @param  string $table
      *
      * @return \Illuminate\Database\Query\Builder
      */
-    public function table($table)
+    public function table($table, $as = NULL)
     {
         $processor = $this->getPostProcessor();
 
